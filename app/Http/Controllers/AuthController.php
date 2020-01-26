@@ -46,7 +46,7 @@ public function login(Request $request)
         $userdata = array(
             'email'     => $request->input('email'),
             'name'     => $request->input('name'),
-            'password'  => $request->input('password')
+            'password'  => Hash::make($request->input('password'))
         );
 
         $user = \App\User::create($userdata);
