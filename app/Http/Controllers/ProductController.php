@@ -19,8 +19,13 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        // TODO validate
-        Product::create($request->all());
+        $newitem = $this->validate(request(), [
+            'name' => 'required',
+            'cost' => 'required',
+            'date' => 'required',
+            'category' => 'required',
+        ]);
+        Product::create($newitem);
         return redirect('/products');
     }
 
@@ -36,8 +41,13 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
-        // TODO validate
-        Product::where('id', $id)->update($request->all());
+        $newitem = $this->validate(request(), [
+            'name' => 'required',
+            'cost' => 'required',
+            'date' => 'required',
+            'category' => 'required',
+        ]);
+        Product::where('id', $id)->update($newitem);
         return redirect('/products');
     }
 

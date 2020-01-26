@@ -66,10 +66,18 @@
         <div class="form_buttons field is-grouped">
             <div class="control">
                 <button class="button is-link">
-                    Create
+                    {{$creating ? 'Create' : 'Update'}}
                 </button>
             </div>
         </div>
     </form>
+    @if(!$errors->isEmpty())
+        <div class="errors notification is-danger">
+            {{ $errors->first('name') }}
+            {{ $errors->first('cost') }}
+            {{ $errors->first('category') }}
+            {{ $errors->first('date') }}
+        </div>
+    @endif
 </div>
 @endsection
