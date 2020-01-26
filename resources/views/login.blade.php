@@ -12,7 +12,6 @@
         <form class="form" action="/register" method="POST">
     @endif
             @csrf
-            {{-- @method('PUT') --}}
             @if (Route::is('register'))
             <div class="field form__item">
                 <label class="label" for="name">Name</label>
