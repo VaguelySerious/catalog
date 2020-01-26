@@ -14,27 +14,29 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('product', ['product' => []]);
+        return view('product', ['product' => [], 'creating' => true]);
     }
 
     public function store(Request $request)
     {
+        // TODO validate
         Product::create($request->all());
         return redirect('/products');
     }
 
     public function show($id)
     {
-        return view('product', ['product' => Product::findOrFail($id)]);
+        return $this->edit($id);
     }
 
     public function edit($id)
     {
-        return view('product', ['product' => Product::findOrFail($id)]);
+        return view('product', ['product' => Product::findOrFail($id), 'creating' => false]);
     }
 
     public function update(Request $request, $id)
     {
+        // TODO validate
         Product::where('id', $id)->update($request->all());
         return redirect('/products');
     }
