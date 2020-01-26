@@ -12,5 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/login', function () {
+    if (auth()->check()) {
+        return redirect('/');
+    }
+    return view('login');
+});
+Route::get('/register', function () {
+    if (auth()->check()) {
+        return redirect('/');
+    }
+    return view('register');
+});
+
+Route::post('/login', 'AuthController@login');
+Route::post('/register', 'AuthController@register');
+Route::post('/logout', 'AuthController@logout');
+
