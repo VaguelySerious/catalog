@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
+/**
+ * Auth
+ */
 Route::get('/login', function () {
     if (auth()->check()) {
         return redirect('/');
@@ -32,3 +35,9 @@ Route::post('/login', 'AuthController@login');
 Route::post('/register', 'AuthController@register');
 Route::post('/logout', 'AuthController@logout');
 
+/**
+ * Products
+ */
+Route::middleware(['auth'])->group(function () {
+    Route::resource('products', 'ProductController');
+});
