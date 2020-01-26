@@ -18,8 +18,17 @@
 
     <div class="product_list_list">
         @forelse ($products as $product)
-            <div class="box">
-                <p>This is product {{ $product->id }}</p>
+            <div class="box is-flex">
+                <p>{{ $product->name }}</p>
+                <p>{{ $product->cost }}</p>
+                <p>{{ $product->date }}</p>
+                <p>{{ $product->category }}</p>
+                <a href="/products/{{$product->id}}" class="button button-is-link">
+                    <span class="icon">
+                        <i class="far fa-edit"></i>
+                    </span>
+                    <span>Edit</span>
+                </a>
                 <form action="/products/{{$product->id}}" method="POST">
                     @method('DELETE')
                     @csrf
