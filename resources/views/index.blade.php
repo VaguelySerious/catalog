@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
+@component('components.navbar')
+@endcomponent
 <div class="container">
     <h1 class="title">The great catalog</h1>
     <h2 class="subtitle">Nothing greated has ever existed</h2>
