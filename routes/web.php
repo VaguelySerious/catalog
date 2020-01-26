@@ -13,20 +13,20 @@
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
 Route::get('/login', function () {
     if (auth()->check()) {
         return redirect('/');
     }
     return view('login');
-});
+})->name('login');
 Route::get('/register', function () {
     if (auth()->check()) {
         return redirect('/');
     }
-    return view('register');
-});
+    return view('login');
+})->name('register');
 
 Route::post('/login', 'AuthController@login');
 Route::post('/register', 'AuthController@register');
