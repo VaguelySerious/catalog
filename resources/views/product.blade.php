@@ -6,13 +6,11 @@
 <div class="container">
     <form action="/products" method="POST">
         @csrf
-        {{-- @method('PUT') --}}
-        {{-- TODO Add better icons --}}
          <div class="field form__item">
             <label class="label" for="name">Name</label>
             <div class="control has-icons-left">
                 <span class="icon is-small is-left">
-                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-align-justify"></i>
                 </span>
                 <input class="input" type="text" id="name" name="name">
             </div>
@@ -22,7 +20,7 @@
             <label class="label" for="date">Date</label>
             <div class="control has-icons-left">
                 <span class="icon is-small is-left">
-                    <i class="fas fa-lock"></i>
+                    <i class="far fa-clock"></i>
                 </span>
                 @php
                     $ISODate = \Carbon\Carbon::now()->format('Y-m-d');
@@ -51,9 +49,9 @@
             <label class="label" for="cost">Cost</label>
             <div class="control has-icons-left">
                 <span class="icon is-small is-left">
-                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-lock"></i>
                 </span>
-                <input class="input" type="number" id="cost" name="cost" value="10.00">
+                <input class="input" type="number" id="cost" name="cost">
             </div>
         </div>
 
