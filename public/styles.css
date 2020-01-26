@@ -1,0 +1,43 @@
+html {
+    background-color: #dfe6e9;
+}
+
+.product_list {
+    /* max-width: 1200px; */
+}
+
+.product_list_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product_list_list {
+    
+}
+
+.container {
+    margin-top: 3rem;
+}
+
+.card_container {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1.25rem 1.25rem calc(1.25rem + 8vw);
+}
+
+.card {
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 700px;
+    padding: 4rem;
+    height: auto;
+}
+
+.form_buttons {
+    margin-top: 2rem;
+}
+
+.errors {
+    margin-top: 2rem;
+}
