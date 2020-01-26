@@ -18,22 +18,30 @@
 
     <div class="product_list_list">
         @forelse ($products as $product)
-            <div class="box is-flex">
-                <p>{{ $product->name }}</p>
-                <p>{{ $product->cost }}</p>
-                <p>{{ $product->date }}</p>
-                <p>{{ $product->category }}</p>
-                <a href="/products/{{$product->id}}" class="button button-is-link">
-                    <span class="icon">
-                        <i class="far fa-edit"></i>
-                    </span>
-                    <span>Edit</span>
-                </a>
-                <form action="/products/{{$product->id}}" method="POST">
-                    @method('DELETE')
-                    @csrf
-                    <button class="button">Delete</button>
-                </form>
+            <div class="box product_wrapper is-flex">
+                <div class="product_attributes is-flex">
+                    <p class="text product_attribute">{{ $product->name }}</p>
+                    <p class="text product_attribute">{{ $product->cost }}</p>
+                    <p class="text product_attribute">{{ $product->date }}</p>
+                    <p class="text product_attribute">{{ $product->category }}</p>
+                </div>
+                <div class="product_control is-flex">
+                    <div class="product_control_item">
+                        <a href="/products/{{$product->id}}" class="button button-is-link">
+                            <span class="icon">
+                                <i class="far fa-edit"></i>
+                            </span>
+                            <span>Edit</span>
+                        </a>
+                    </div>
+                    <div class="product_control_item">
+                        <form action="/products/{{$product->id}}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button class="button">Delete</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         @empty
             <p>No users</p>
