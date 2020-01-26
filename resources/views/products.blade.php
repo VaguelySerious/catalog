@@ -7,7 +7,7 @@
 
     <div class="product_list_title">
         <h1 class="title">Catalog</h1>
-        <a href="/products/create" class="button button-is-link">
+        <a href="/products/create" class="button is-link is-light">
             <span class="icon">
             <i class="far fa-edit"></i>
             </span>
@@ -20,14 +20,16 @@
         @forelse ($products as $product)
             <div class="box product_wrapper is-flex">
                 <div class="product_attributes is-flex">
-                    <p class="text product_attribute">{{ $product->name }}</p>
-                    <p class="text product_attribute">{{ $product->cost }}</p>
-                    <p class="text product_attribute">{{ $product->date }}</p>
-                    <p class="text product_attribute">{{ $product->category }}</p>
+                    <h2 class="product_attribute product_attribute_title">{{ $product->name }}</h2>
+                    <p class="text product_attribute product">{{ $product->category }}</p>
+                    <p class="text product_attribute product_date">{{\Carbon\Carbon::parse($product->date)->format('M d, Y')}}</p>
+                </div>
+                <div class="product_price_wrapper">
+                    <p class="text product_attribute product_price">$ {{ $product->cost }}</p>
                 </div>
                 <div class="product_control is-flex">
                     <div class="product_control_item">
-                        <a href="/products/{{$product->id}}" class="button button-is-link">
+                        <a href="/products/{{$product->id}}" class="button is-link">
                             <span class="icon">
                                 <i class="far fa-edit"></i>
                             </span>
@@ -38,7 +40,12 @@
                         <form action="/products/{{$product->id}}" method="POST">
                             @method('DELETE')
                             @csrf
-                            <button class="button">Delete</button>
+                            <button class="button is-danger">
+                                <span class="icon">
+                                    <i class="fas fa-trash-alt"></i>
+                                </span>
+                                <span>Delete</span>
+                            </button>
                         </form>
                     </div>
                 </div>

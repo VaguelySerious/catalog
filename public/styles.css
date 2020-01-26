@@ -30,7 +30,7 @@ html {
 }
 
 .product_list {
-    /* max-width: 1200px; */
+    max-width: 800px;
 }
 
 .product_list_title {
@@ -44,12 +44,39 @@ html {
 
 .product_wrapper {
     justify-content: space-between;
+    align-items: center;
 }
 
 .product_control_item {
     padding: 0 0.5rem;
+    flex: 0 0 auto;
+}
+
+.product_attributes {
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .product_attribute {
     padding: 0 0.5rem;
+}
+
+.product_attribute_title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 0;
+    flex: 0 0 100%;
+}
+
+.product_price {
+    white-space: nowrap;
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+.product_price_wrapper {
+    flex: 0 0 150px;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 2rem;
 }
